@@ -13,11 +13,9 @@ System Requirements
 
 Download and Instructions
 =========================
-- Download latest version of TurboCPP from [here](https://github.com/AvinashReddy3108/TurboCPP4Linux/releases/latest)
+- Download latest version of TurboCPP from [here](https://github.com/AvinashReddy3108/TurboCPP4Linux/archive/refs/heads/master.zip)
 - Extract the zip file anywhere you like
-- Open a terminal in that folder and type `./TURBOCPP` to open TurboC++ IDE (make sure `chmod +x` is given to it or else it won't run)
-
-
+- Open a terminal in that folder and use the `start.sh` script to open TurboC++ IDE (make sure `chmod +x` is given to it or else it won't run)
 
 Credits
 =======

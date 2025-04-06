@@ -1,0 +1,5 @@
+# Swap files
+TC/**/*.SWP
+
+# User's Projects
+TC/Projects/*
