@@ -24,3 +24,15 @@ This is an old DOS compiler and does not support modern C++ standards. Use GCC o
 ## Credits
 
 Forked from [AvinashReddy3108/TurboCPP4Linux](https://github.com/AvinashReddy3108/TurboCPP4Linux), which credits [vineetchoudhary](https://github.com/vineetchoudhary) for the Turbo C++ files. DOSBox Staging is a separate open-source project.
+
+## Mouse integration and shortcuts
+
+To optionally enable host-rendered mouse integration, download the [VBADOS binaries](https://git.javispedro.com/cgit/vbados.git/about/) and place `VBMOUSE.EXE` and `VBMOUSE.EN` from its ZIP in `TC/BIN`. Restart Turbo C++ to enable it. Without these files the launcher uses the emulator's built-in mouse driver. VBMouse is a separate project; check its documentation and licence before redistribution. If mouse behaviour is unreliable, remove those two files to revert.
+
+DOSBox's Ctrl+F9 shutdown shortcut is unbound so the key reaches Turbo C++'s Run command. Other IDE shortcuts retain their original behaviour; Ctrl+V does not paste the Linux clipboard into the Turbo C++ editor.
+
+To reduce background load, emulation pauses while the window is inactive, including any program running in it. Set `pause_when_inactive = off` in `dosbox-staging.conf` to keep programs running in the background. The emulator also runs at lower scheduling priority and at 12,000 emulated CPU cycles.
+
+## Caelestia sidebar
+
+Some Hyprland/Quickshell setups may have trouble with live window previews. An experimental local workaround disabled Caelestia's live preview for the DOSBox Staging window only; it has not been confirmed to solve recurring sidebar freezes and is not applied automatically by this repository. If Caelestia freezes, `caelestia shell --restart --daemon` restarts its shell without closing open applications.
