@@ -1,26 +1,26 @@
-What is Turbo C++?
-===================
-![A screenshot of the TurboC++ IDE](https://upload.wikimedia.org/wikipedia/commons/1/16/Turbo_CPP_Compiler.jpg)
+# TurboCPP4Hyprland
 
-- It is a C++ compiler and integrated development environment (IDE) and computer language.
-- Turbo C++ provides an environment called IDE (Integrated Development Environment).
-- The editor is used to create the source file, compile it, link it and then execute it.
+Turbo C++ 3.0 for DOS running on Linux using DOSBox Staging. This fork configures a resizable Wayland-friendly window for Hyprland. It stretches the DOS display to fill the window; this changes the original aspect ratio.
 
-System Requirements
-====================
-- Anything that runs Linux should do as long as it has a display, keyboard and mouse :P
-- Latest version of DOSBox Emulator should be installed via your distro's package manager, Ubuntu/Mint users can install it by typing ```sudo apt install dosbox``` in the terminal.
+## Setup
 
-Download and Instructions
-=========================
-- Download latest version of TurboCPP from [here](https://github.com/AvinashReddy3108/TurboCPP4Linux/archive/refs/heads/master.zip)
-- Extract the zip file anywhere you like
-- Open a terminal in that folder and use the `start.sh` script to open TurboC++ IDE (make sure `chmod +x` is given to it or else it won't run)
+1. Install [DOSBox Staging](https://www.dosbox-staging.org/getting-started/introduction/installation/) for Linux. The launcher looks for `dosbox-staging` on your PATH. For the local installation used in the original setup it also checks `~/.local/opt/turbocpp/staging/dosbox`.
+2. Clone this repository and keep it in a permanent location:
 
-Credits
-=======
-- Huge thanks to [@vineetchoudhary](https://github.com/vineetchoudhary) for the TurboCPP files.
+   ```sh
+   git clone https://github.com/KingSahil/TurboCPP4Hyprland.git
+   cd TurboCPP4Hyprland
+   bash install.sh
+   ```
 
-Issues ?
-========
-Report them [here](https://github.com/AvinashReddy3108/TurboCPP4Linux/issues)
+3. Search for **turbocpp** in your application menu, or run `./start.sh` from the repository.
+
+The launcher points to the repository's current location, so rerun `./install.sh` if you move it. Turbo C++ writes its files within the `TC` directory; keep backups of your work.
+
+Resize the window using your Hyprland bindings or mouse. Keyboard shortcuts vary by Hyprland configuration; DOSBox Staging uses Alt+Enter for its own fullscreen toggle. The default window is 1280×800; edit `dosbox-staging.conf` to change it. Set `aspect = auto` if you prefer the original proportions with possible borders.
+
+This is an old DOS compiler and does not support modern C++ standards. Use GCC or Clang for modern C++ projects.
+
+## Credits
+
+Forked from [AvinashReddy3108/TurboCPP4Linux](https://github.com/AvinashReddy3108/TurboCPP4Linux), which credits [vineetchoudhary](https://github.com/vineetchoudhary) for the Turbo C++ files. DOSBox Staging is a separate open-source project.
