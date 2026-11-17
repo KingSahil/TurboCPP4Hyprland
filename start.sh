@@ -9,6 +9,11 @@ else
   printf '%s\n' 'DOSBox Staging is required. Install it from https://www.dosbox-staging.org/' >&2
   exit 1
 fi
-exec "$emulator" --noprimaryconf --nolocalconf --conf "$root/dosbox-staging.conf" \
-  -c "mount c \"$root\"" -c 'c:' -c 'set PATH=C:\TC\BIN' \
-  -c 'cd \TC\BIN' -c 'TC.EXE' -c 'exit'
+args=(--noprimaryconf --nolocalconf --conf "$root/dosbox-staging.conf"
+  --set "mapperfile=$root/turbocpp.map"
+  -c "mount c \"$root\"" -c 'c:' -c 'set PATH=C:\TC\BIN' -c 'cd \TC\BIN')
+if [[ -f "$root/TC/BIN/VBMOUSE.EXE" ]]; then
+  args+=(--set 'builtin_dos_mouse_driver=off' -c 'VBMOUSE.EXE' -c 'VBMOUSE.EXE hostcur on')
+fi
+args+=(-c 'TC.EXE' -c 'exit')
+exec nice -n 10 "$emulator" "${args[@]}"
